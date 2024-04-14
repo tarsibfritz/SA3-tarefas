@@ -1,0 +1,17 @@
+.main_container{
+    width: 57em;
+    height: 30em;
+    margin-top: 1.5em;
+    margin-left: 20em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+    background-color: rgba(229, 231, 234, 0.553);
+}
+
+#no-tasks{
+    display: flex;
+    justify-content: center;
+    padding: 230px;
+    font-size: 25px;
+    color: rgba(153, 150, 150, 0.626);
+}

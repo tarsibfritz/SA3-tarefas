@@ -1,0 +1,45 @@
+<%- include('../header') %>
+
+<% if (tasks != '') { tasks.forEach((row, index) => { %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <div class="card shadow">
+        <div class="card-header bg-dark">
+          <h3 class="text-light">Editar Tarefa (ID <%= row.id %>) </h3>
+        </div>
+        <div class="card-body p-4">
+          <form action="/task/<%= row.id %>" method="POST">
+            <div class="mb-3">
+              <label for="description" class="col-sm-3 col-form-label col-form-label-lg">Descrição:</label>
+              <input type="text" name="description" class="form-control form-control-lg" placeholder="Informe a descrição..."
+                value="<%= row.descricao %>" required />
+            </div>
+            <div class="mb-3">
+              <label for="status" class="col-sm-3 col-form-label col-form-label-lg">Status:</label>
+              <select name="status" class="form-control form-control-lg" required>
+                <option value="Não iniciada" <% if (row.status === 'Não iniciada') { %> selected <% } %>>Não iniciada</option>
+                <option value="Em progresso" <% if (row.status === 'Em progresso') { %> selected <% } %>>Em progresso</option>
+                <option value="Finalizada" <% if (row.status === 'Finalizada') { %> selected <% } %>>Finalizada</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="start_date" class="col-sm-3 col-form-label col-form-label-lg">Data de Início:</label>
+              <input type="date" name="start_date" class="form-control form-control-lg" value="<%= row.data_inicio %>" required />
+            </div>
+            <div class="mb-3">
+              <label for="end_date" class="col-sm-3 col-form-label col-form-label-lg">Data de Conclusão:</label>
+              <input type="date" name="end_date" class="form-control form-control-lg" value="<%= row.data_conclusao %>" />
+            </div>
+            <div class="mb-3 d-grid">
+              <input type="submit" name="submit" value="Gravar" class="btn btn-dark btn-lg" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% }) } %>
+
+<%- include('../footer') %>

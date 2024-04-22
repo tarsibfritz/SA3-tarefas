@@ -1,25 +1,23 @@
-// Importa o modelo de Job (vaga de emprego) para acessar as operações CRUD relacionadas a empregos
+// Importa o modelo de Task (tarefa) para acessar as operações CRUD relacionadas a tarefas
 const taskModel = require("../models/taskModel");
 
-// Define a classe JobController, responsável por controlar as operações relacionadas a empregos
+// Define a classe TaskController, responsável por controlar as operações relacionadas a tarefas
 class TaskController {
 
-  // ADICIONADO
+  // ADICIONADO COM O VIEWS
   // Método para visualizar a pagina inicial
   viewRead(req, res) {
     return res.status(200).render("./index", { title: "Página Inicial"});
   }
 
-  // Método para visualizar o formulário de criação de uma nova vaga de emprego
+  // Método para visualizar o formulário de criação de uma nova tarefa
   viewCreate(req, res) {
     return res.status(200).render("./task/task_create", { title: "Adicionar Tarefa" });
   }
 
-  // Método para visualizar o formulário de atualização de uma vaga de emprego existente
+  // Método para visualizar o formulário de atualização de uma tarefa existente
   viewUpdate(req, res) {
-    // Obtém o parâmetro ID da requisição
     const { id } = req.params;
-    // Chama a função read() do modelo jobModel para obter a vaga de emprego com o ID fornecido
     const task = taskModel.read(id);
     return task
       .then((result) =>
@@ -30,9 +28,8 @@ class TaskController {
       .catch((error) => res.status(400).send(error.message));  
   }
 
-  // Método para listar todas as vagas de emprego
+  // Método para listar todas as tarefas
   readList(req, res) {
-    // Chama a função readList() do modelo jobModel para obter a lista de vagas de emprego
     const tasksList = taskModel.readList();
     return tasksList
       .then((result) =>
@@ -43,11 +40,9 @@ class TaskController {
       .catch((error) => res.status(400).send(error.message));  
   }
 
-  // Método para ler uma vaga de emprego específica por ID
+  // Método para ler uma tarefa específica por ID
   read(req, res) {
-    // Obtém o parâmetro ID da requisição
     const { id } = req.params;
-    // Chama a função read() do modelo jobModel para obter a vaga de emprego com o ID fornecido
     const task = taskModel.read(id);
     return task
       .then((result) =>
@@ -58,35 +53,56 @@ class TaskController {
       .catch((error) => res.status(400).send(error.message));  
   }
 
-  // Método para criar uma nova vaga de emprego
+  // Método para criar uma tarefa
   create(req, res) {
-    // Obtém os dados da nova vaga de emprego do corpo da requisição
-    const newTask = req.body;
-    // Chama a função create() do modelo jobModel para criar uma nova vaga de emprego
+    // Obtém os dados da nova tarefa do corpo da requisição
+    const { descricao, status, data_inicio, data_conclusao } = req.body;
+
+    // Verificar se a data de conclusão foi informada
+    const dataConclusao = data_conclusao ? data_conclusao : null;
+
+    // Criar uma nova tarefa
+    const newTask = {
+      descricao: descricao,
+      status: status,
+      data_inicio: data_inicio,
+      data_conclusao: dataConclusao
+    };
+
+    // Chama a função create() do modelo taskModel para criar uma nova tarefa
     const task = taskModel.create(newTask);
     return task
       .then((result) => res.status(200).send("<script> alert('Tarefa criada com sucesso!'); window.location='/task' </script>"))
       .catch((error) => res.status(400).send(error.message));    
   }
 
-  // Método para atualizar uma vaga de emprego existente por ID
+  // Método para atualizar uma tarefa existente por ID
   update(req, res) {
-    // Obtém o parâmetro ID da requisição
     const { id } = req.params;
-    // Obtém os dados atualizados da vaga de emprego do corpo da requisição
-    const updatedTask = req.body;
-    // Chama a função update() do modelo jobModel para atualizar a vaga de emprego com o ID fornecido
+    // Obtém os dados da nova tarefa do corpo da requisição
+    const { descricao, status, data_inicio, data_conclusao } = req.body;
+
+    // Verificar se a data de conclusão foi informada
+    const dataConclusao = data_conclusao ? data_conclusao : null;
+
+      // Criar um objeto com os dados atualizados
+    const updatedTask = {
+      descricao: descricao,
+      status: status,
+      data_inicio: data_inicio,
+      data_conclusao: dataConclusao
+    };
+
+    // Chama a função update() do modelo taskModel para atualizar uma tarefa
     const task = taskModel.update(updatedTask, id);
     return task
       .then((result) => res.status(200).send("<script> alert('Tarefa atualizada com sucesso!'); window.location='../../task' </script>"))
       .catch((error) => res.status(400).send(error.message));   
   }
 
-  // Método para excluir uma vaga de emprego existente por ID
+  // Método para excluir uma tarefa existente por ID
   delete(req, res) {
-    // Obtém o parâmetro ID da requisição
     const { id } = req.params;
-    // Chama a função delete() do modelo jobModel para excluir a vaga de emprego com o ID fornecido
     const task = taskModel.delete(id);
     return task
       .then((result) => res.status(200).send("<script> alert('Tarefa excluída com sucesso!'); window.location='../../task' </script>"))
@@ -94,5 +110,5 @@ class TaskController {
   }
 }
 
-// Exporta uma instância da classe JobController para ser utilizada em outros arquivos do projeto
+// Exporta uma instância da classe TaskController para ser utilizada em outros arquivos do projeto
 module.exports = new TaskController();

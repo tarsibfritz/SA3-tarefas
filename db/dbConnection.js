@@ -3,11 +3,11 @@ const mysql = require("mysql");
 
 // Cria uma conexão com o banco de dados MySQL utilizando as configurações especificadas
 const sqlConnection = mysql.createConnection({
-  host: "localhost",       // Host onde o banco de dados está sendo executado (geralmente "localhost" para desenvolvimento local)
-  port: 3306,              // Porta utilizada para se conectar ao banco de dados MySQL
-  user: "root",            // Nome de usuário para autenticação no banco de dados
-  password: "admin",       // Senha do usuário para autenticação no banco de dados
-  database: "db_task",      // Nome do banco de dados a ser utilizado
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "admin",
+  database: "db_task",
 });
 
 // Exporta a conexão criada para que possa ser utilizada em outros arquivos do projeto

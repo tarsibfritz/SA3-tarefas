@@ -5,16 +5,16 @@
       <div class="col-lg-6 mx-auto mt-4">
         <div class="card shadow">
           <div class="card-header bg-dark">
-            <h3 class="text-light">Adicionar Vaga de Emprego</h3>
+            <h3 class="text-light">Adicionar Tarefa</h3>
           </div>
           <div class="card-body p-4">
             <form action="/task" method="POST">
               <div class="mb-3">
-                <label for="descricao" class="col-sm-3 col-form-label col-form-label-lg">Descrição:</label>
+                <label for="descricao" class="col-sm-3 col-form-label col-form-label-lg">Descrição: *</label>
                 <input type="text" name="descricao" class="form-control form-control-lg" placeholder="Informe sobre a tarefa..." required />
               </div>
               <div class="mb-3">
-                <label for="status" class="col-sm-3 col-form-label col-form-label-lg">Status:</label>
+                <label for="status" class="col-sm-3 col-form-label col-form-label-lg">Status: *</label>
                 <select name="status" class="form-select form-select-lg" required>
                   <option value="Não iniciada">Não iniciada</option>
                   <option value="Em progresso">Em progresso</option>
@@ -22,11 +22,11 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label for="data_inicio" class="col-sm-3 col-form-label col-form-label-lg">Data de Início:</label>
+                <label for="data_inicio" class="col-sm-6 col-form-label col-form-label-lg">Data de Início: *</label>
                 <input type="date" name="data_inicio" class="form-control form-control-lg" required />
               </div>
               <div class="mb-3">
-                <label for="data_conclusao" class="col-sm-3 col-form-label col-form-label-lg">Data de Conclusão:</label>
+                <label for="data_conclusao" class="col-sm-6 col-form-label col-form-label-lg">Data de Conclusão:</label>
                 <input type="date" name="data_conclusao" class="form-control form-control-lg" />
               </div>
               <div class="mb-3 d-grid">

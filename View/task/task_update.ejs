@@ -1,0 +1,36 @@
+<%- include('../header.ejs') %>
+
+<% if ( tasks !='' ) { tasks.forEach((row, index)=> { %> 
+    <div class="modal_container">
+        <div class="modal_box">
+            <div class="modal_header">
+                <h3>Editar Tarefa ( ID <%= row.id %> )</h3>
+            </div>
+            <div class="form">
+                <form action="/task/<%= row.id %>" method="POST">
+                    <div class="form_group">
+                        <label for="task-description">Descrição:</label>
+                        <input type="text" name="task-description" id="task-description" placeholder="Informe o nome e detalhes da tarefa..." value="<%= row.nome %>" required />
+                    </div>
+                    <div class="form_group">
+                        <label for="task-status">Status:</label>
+                        <select id="task-status" value="<%= row.status %>" required>
+                        <option>Não iniciada</option>
+                        <option>Em progresso</option>
+                        <option>Finalizada</option>
+                    </select>
+                    </div>
+                    <div class="form_group">
+                        <label for="task-deadline">Prazo:</label>
+                        <input type="date" id="task-deadline" value="<%= row.data)data_conclusao %>" required />
+                    </div>
+                    <div class="form_submit">
+                        <input type="submit" name="submit" value="Gravar" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% })} %>
+
+<%- include('../footer.ejs') %>

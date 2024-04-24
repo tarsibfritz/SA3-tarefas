@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+.header_container{
+    max-width: 100vw;
+    display: flex;
+    background-color: blueviolet;
+}
+
+.header_container .header_navigation{
+    padding: 13px;
+    margin-left: 24px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ADD TASK */
+.header_container button{
+    display: flex;
+    height: 45px;
+    width: 150px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    margin-left: 860px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bolder;
+    align-items: center;
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+.header_container button:hover{
+    background-color: rgb(158, 71, 240);
+}
+
+
+/* MAIN CONTAINER*/
+.main_container{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5em;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.main_container h2{
+    display: flex;
+    width: 440px;
+    padding: 2px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    font-size: 18px;
+    justify-content: center;
+    color: #ffffff;
+    background-color: blueviolet;
+    border-radius: 20px;
+}
+
+.main_container a{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+/* FOOTER */
+.footer_container{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background-color: #f3eeee;
+} 

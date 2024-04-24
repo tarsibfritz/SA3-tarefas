@@ -1,0 +1,87 @@
+#modal{
+    display: none; 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal .modal_box{
+    width: 400px;
+    border-radius: 7px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#modal .modal_box .modal_head{
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid #9191916e;
+}
+
+#modal .modal_box .modal_head span{
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+#modal .modal_box .modal_head button{
+    font-size: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #333
+}
+
+#modal .modal_box .form{
+    padding: 20px;
+}
+
+#modal .modal_box .form label{
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#modal .modal_box .form textarea,
+#modal .modal_box .form select{
+    border-radius: 7px;
+    font-size: 14px;
+    border: 1px solid #999;
+    color: #333;
+}
+
+#modal .modal_box .form textarea{
+    padding: 10px 15px;
+    width: 91%;
+}
+
+#modal .modal_box .form select{
+    padding: 10px;
+    width: 100%;
+}
+
+#modal .modal_box .form input{
+    padding: 10px;
+    width: 93%;
+}
+
+#modal .modal_box .form button{
+    display: block;
+    margin-left: auto;
+    padding: 10px;
+    align-items: center;
+    width: 150px;
+    margin-top: 13px;
+    cursor: pointer;
+    /* Just to test*/
+    border: 0;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
